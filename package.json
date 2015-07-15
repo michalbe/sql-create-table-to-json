@@ -1,0 +1,20 @@
+{
+  "name": "sql-create-table-to-json",
+  "version": "0.0.1",
+  "author": "Michał Budzyński <michal@virtualdesign.pl>",
+  "repository": "git@github.com:michalbe/sql-schema-to-json.git",
+  "scripts": {
+    "test-off": "node tests/sql-create-table-to-json-tests.js",
+    "lint": "node node_modules/jshint/bin/jshint .",
+    "validate": "npm ls"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ],
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "precommit-hook": "^3.0.0"
+  }
+}
