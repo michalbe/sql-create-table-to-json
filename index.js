@@ -1,6 +1,6 @@
 'use strict';
 
-var sqt2j = function(file, cb){
+module.exports = function(file, cb){
   var output = {};
 
   var fs = require('fs');
@@ -8,7 +8,7 @@ var sqt2j = function(file, cb){
     if (err) {
       return cb(err);
     }
-    
+
     var chunks = data.split('\n\n');
     chunks.forEach(function(chunk){
       var tableName = chunk.match('CREATE TABLE `(.*)`')[1];
