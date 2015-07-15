@@ -8,6 +8,13 @@ fs.readFile('data.sql', 'utf8', function (err,data) {
   var chunks = data.split('\n\n');
   chunks.forEach(function(chunk){
     console.log(chunk.match('CREATE TABLE `(.*)`')[1]);
+    var lines = chunk.split('\n');
+    lines.forEach(function(line){
+      var match = line.match(' `(.*)`');
+      if (match) {
+        console.log(match[1]);
+      }
+    });
   });
 
   // console.log(data);
