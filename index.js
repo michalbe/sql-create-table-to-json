@@ -4,7 +4,7 @@ module.exports = function(file, cb){
   var output = {};
 
   var fs = require('fs');
-  fs.readFile('data.sql', 'utf8', function (err,data) {
+  fs.readFile(file, 'utf8', function (err,data) {
     if (err) {
       return cb(err);
     }
