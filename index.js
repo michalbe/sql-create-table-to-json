@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(file, cb){
+var sct2j = function(file, cb){
   var output = {};
 
   var fs = require('fs');
@@ -29,3 +29,5 @@ module.exports = function(file, cb){
     cb(null, output);
   });
 };
+
+module.exports = sct2j;
