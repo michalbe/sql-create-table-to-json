@@ -25,5 +25,7 @@ module.exports = function(file, cb){
         }
       });
     });
+
+    cb(null, output);
   });
 };
