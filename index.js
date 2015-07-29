@@ -1,8 +1,7 @@
 'use strict';
 
 var removeComments = function(data) {
-  data = data.replace(/\/\*(.*)/g, '');
-  console.log(data);
+  data = data.replace(/\/\*(.*)/g, '').replace(/([ \t]*\n){3,}/g, '\n\n');
   return data;
 };
 
@@ -16,7 +15,7 @@ var sct2j = function(file, cb){
     }
 
     data = removeComments(data);
-    return;
+    //return;
     var chunks = data.split('\n\n');
     chunks.forEach(function(chunk){
       var tableName = chunk.match('CREATE TABLE `(.*)`')[1];
