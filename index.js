@@ -15,7 +15,6 @@ var sct2j = function(file, cb){
     }
 
     data = removeComments(data);
-    //return;
     var chunks = data.split('\n\n');
     chunks.forEach(function(chunk){
       var tableName = chunk.match('CREATE TABLE `(.*)`');
@@ -41,7 +40,3 @@ var sct2j = function(file, cb){
 };
 
 module.exports = sct2j;
-
-sct2j('data.sql', function(err, data){
-  console.log(JSON.stringify(data, 2, 2));
-});
