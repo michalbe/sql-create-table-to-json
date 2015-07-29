@@ -1,6 +1,6 @@
 {
   "name": "sql-create-table-to-json",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Michał Budzyński <michal@virtualdesign.pl>",
   "repository": "git@github.com:michalbe/sql-create-table-to-json.git",
   "scripts": {
