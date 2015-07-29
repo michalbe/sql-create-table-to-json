@@ -1,5 +1,11 @@
 'use strict';
 
+var removeComments = function(data) {
+  data = data.replace(/\/\*(.*)/g, '');
+  console.log(data);
+  return data;
+};
+
 var sct2j = function(file, cb){
   var output = {};
 
@@ -9,6 +15,8 @@ var sct2j = function(file, cb){
       return cb(err);
     }
 
+    data = removeComments(data);
+    return;
     var chunks = data.split('\n\n');
     chunks.forEach(function(chunk){
       var tableName = chunk.match('CREATE TABLE `(.*)`')[1];
@@ -31,3 +39,7 @@ var sct2j = function(file, cb){
 };
 
 module.exports = sct2j;
+
+sct2j('data.sql', function(err, data){
+  console.log(JSON.stringify(data, 2, 2));
+});
