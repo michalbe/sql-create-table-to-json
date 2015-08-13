@@ -1,4 +1,5 @@
 'use strict';
+var output = {};
 
 var fs = require('fs');
 fs.readFile('data.sql', 'utf8', function (err,data) {
@@ -7,7 +8,8 @@ fs.readFile('data.sql', 'utf8', function (err,data) {
   }
   var chunks = data.split('\n\n');
   chunks.forEach(function(chunk){
-    console.log(chunk.match('CREATE TABLE `(.*)`')[1]);
+    var tableName = chunk.match('CREATE TABLE `(.*)`')[1];
+    output[tableName] = [];
     var lines = chunk.split('\n');
     lines.forEach(function(line, index){
       if (~line.indexOf(' KEY ') || index === 0) {
@@ -16,7 +18,7 @@ fs.readFile('data.sql', 'utf8', function (err,data) {
 
       var match = line.match(' `(.*)`');
       if (match) {
-        console.log(index + ' ' + match[1]);
+        output[tableName].push(match[1]);
       }
     });
   });
