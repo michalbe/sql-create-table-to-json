@@ -47,11 +47,17 @@ output:
 
 ##How?
 
+Create SQL schema dump:
+```bash
+$ mysqldump -h localhost -u root -p --no-data --compact bd_name > data.sql
+```
+
+then:
 ```bash
 $ npm install sql-create-table-to-json
 ```
 
-than in js:
+then in js:
 
 ```javascript
 var sct2j = require('sql-create-table-to-json');
