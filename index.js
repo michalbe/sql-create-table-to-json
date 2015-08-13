@@ -9,13 +9,14 @@ fs.readFile('data.sql', 'utf8', function (err,data) {
   chunks.forEach(function(chunk){
     console.log(chunk.match('CREATE TABLE `(.*)`')[1]);
     var lines = chunk.split('\n');
-    lines.forEach(function(line){
-      if (!~line.indexOf(' KEY ')) {
+    lines.forEach(function(line, index){
+      if (~line.indexOf(' KEY ') || index === 0) {
+        return;
+      }
         var match = line.match(' `(.*)`');
         if (match) {
-          console.log(match[1]);
+          console.log(index + ' ' + match[1]);
         }
-      }
     });
   });
 
