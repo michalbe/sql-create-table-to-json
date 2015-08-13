@@ -1,5 +1,5 @@
 # sql-create-table-to-json
-Change `SQL CREATE TABLE` query to `JSON`
+Create `JSON` objects from `SQL CREATE TABLE` queries
 
 ## What?
 
