@@ -13,10 +13,11 @@ fs.readFile('data.sql', 'utf8', function (err,data) {
       if (~line.indexOf(' KEY ') || index === 0) {
         return;
       }
-        var match = line.match(' `(.*)`');
-        if (match) {
-          console.log(index + ' ' + match[1]);
-        }
+
+      var match = line.match(' `(.*)`');
+      if (match) {
+        console.log(index + ' ' + match[1]);
+      }
     });
   });
 
